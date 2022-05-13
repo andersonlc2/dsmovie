@@ -21,7 +21,7 @@ function Listing() {
     });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
+        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=id`)
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
@@ -33,7 +33,6 @@ function Listing() {
             <Pagination />
 
             <div className="container">
-
                 <div className="row">
                     {page.content.map(movie =>
                     (
@@ -43,7 +42,6 @@ function Listing() {
                     )
                     )}
                 </div>
-
             </div>
         </>
     );
